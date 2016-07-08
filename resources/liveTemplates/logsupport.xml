@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templateSet group="logsupport-lite">
+
+    <template id="logsupport-lite-logt" name="logt"
+              value="$LOGGER$.trace(&quot;$END$&quot;, $THROWABLE$);"
+              description="Logs an trace message" toReformat="true" toShortenFQNames="true">
+        <variable name="LOGGER" expression="resolveLoggerInstance(&quot;logger&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <variable name="THROWABLE"
+                  expression="resolveOptionalVariableOfType(&quot;java.lang.Throwable&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_STATEMENT" value="true" />
+        </context>
+    </template>
+
+    <template id="logsupport-lite-logd" name="logd"
+              value="$LOGGER$.debug(&quot;$END$&quot;, $THROWABLE$);"
+              description="Logs an debug message" toReformat="true" toShortenFQNames="true">
+        <variable name="LOGGER" expression="resolveLoggerInstance(&quot;logger&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <variable name="THROWABLE"
+                  expression="resolveOptionalVariableOfType(&quot;java.lang.Throwable&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_STATEMENT" value="true" />
+        </context>
+    </template>
+
+    <template id="logsupport-lite-logi" name="logi"
+              value="$LOGGER$.info(&quot;$END$&quot;, $THROWABLE$);"
+              description="Logs an info message" toReformat="true" toShortenFQNames="true">
+        <variable name="LOGGER" expression="resolveLoggerInstance(&quot;logger&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <variable name="THROWABLE"
+                  expression="resolveOptionalVariableOfType(&quot;java.lang.Throwable&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_STATEMENT" value="true" />
+        </context>
+    </template>
+
+    <template id="logsupport-lite-logw" name="logw"
+              value="$LOGGER$.warn(&quot;$END$&quot;, $THROWABLE$);"
+              description="Logs an warn message" toReformat="true" toShortenFQNames="true">
+        <variable name="LOGGER" expression="resolveLoggerInstance(&quot;logger&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <variable name="THROWABLE"
+                  expression="resolveOptionalVariableOfType(&quot;java.lang.Throwable&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_STATEMENT" value="true" />
+        </context>
+    </template>
+
+    <template id="logsupport-lite-loge" name="loge"
+              value="$LOGGER$.error(&quot;$END$&quot;, $THROWABLE$);"
+              description="Logs an error message" toReformat="true" toShortenFQNames="true">
+        <variable name="LOGGER" expression="resolveLoggerInstance(&quot;logger&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <variable name="THROWABLE"
+                  expression="resolveOptionalVariableOfType(&quot;java.lang.Throwable&quot;)"
+                  defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_STATEMENT" value="true" />
+        </context>
+    </template>
+
+</templateSet>
