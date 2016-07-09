@@ -1,4 +1,4 @@
-<idea-plugin version="2">
+<idea-plugin version="2" url="https://github.com/lixian/log-support-lite">
     <id>LogSupportLite</id>
     <name>Log Support Lite</name>
     <version>0.4.2</version>
@@ -13,6 +13,8 @@
             <li>Support live templates: logt, logd, logi, logw, loge.</li>
             <li>Support inspection that detects mismatched argument count for log message format,
                 and the last throwable argument is excluded now. :)
+            </li>
+            <li>Add quick fixes when the count of placeholders is not enough.
             </li>
         </ul>
         </p>
