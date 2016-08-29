@@ -59,7 +59,9 @@ public abstract class AppendToMessageQuickFix implements LocalQuickFix {
     @NotNull
     private String concat(PsiExpression msg, String append) {
         String removeLastQuota = msg.getText().replaceAll("\"$", "");
-        if (removeLastQuota.endsWith(" ")) {
+        if (removeLastQuota.length() == 1) { // msg is ""
+            return removeLastQuota + append + '"';
+        } else if (removeLastQuota.endsWith(" ")) {
             return removeLastQuota + append + '"';
         } else {
             return removeLastQuota + " " + append + '"';
