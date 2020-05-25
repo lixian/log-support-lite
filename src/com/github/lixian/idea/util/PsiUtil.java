@@ -134,7 +134,7 @@ public class PsiUtil {
      * Finds and returns a method call expression under the current caret.
      *
      * @param editor The editor to retrieve the caret position from.
-     * @param file   The underlying parsed file.
+     * @param file The underlying parsed file.
      * @return The call expression or 'null' if the caret is at a call expression.
      */
     @Nullable
@@ -152,16 +152,17 @@ public class PsiUtil {
     /**
      * Finds an specific element type inside a given iteration.
      *
-     * @param elements            The elements to iterate.
-     * @param expectedType        The expected type to look for.
+     * @param elements The elements to iterate.
+     * @param expectedType The expected type to look for.
      * @param ignoredElementTypes A set of types that may be skipped in the Iterable.
-     * @param <E>                 The type of the PsiElement to return.
+     * @param <E> The type of the PsiElement to return.
      * @return The first occurrence of the expected type or 'null' if not found.
      */
     @SuppressWarnings("unchecked")
     private static <E extends PsiElement> E findElement(Iterable<PsiElement> elements,
             Class<E> expectedType, Class<? extends PsiElement>... ignoredElementTypes) {
-        mainLoop: for (PsiElement e : elements) {
+        mainLoop:
+        for (PsiElement e : elements) {
             Class<? extends PsiElement> elementClass = e.getClass();
 
             if (expectedType.isAssignableFrom(elementClass)) {
@@ -187,29 +188,24 @@ public class PsiUtil {
      * @return An Iterable starting from the given element.
      */
     private static Iterable<PsiElement> iterateParents(final PsiElement element) {
-        return new Iterable<PsiElement>() {
+        return () -> new Iterator<PsiElement>() {
 
-            public Iterator<PsiElement> iterator() {
-                return new Iterator<PsiElement>() {
+            private PsiElement el = element;
 
-                    private PsiElement el = element;
+            public boolean hasNext() {
+                return el != null;
+            }
 
-                    public boolean hasNext() {
-                        return el != null;
-                    }
+            public PsiElement next() {
+                try {
+                    return el;
+                } finally {
+                    el = el.getParent();
+                }
+            }
 
-                    public PsiElement next() {
-                        try {
-                            return el;
-                        } finally {
-                            el = el.getParent();
-                        }
-                    }
-
-                    public void remove() {
-                        throw new UnsupportedOperationException();
-                    }
-                };
+            public void remove() {
+                throw new UnsupportedOperationException();
             }
         };
     }

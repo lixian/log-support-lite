@@ -8,7 +8,7 @@ Optimized only for SLF4J.
 
 - Support live templates: logt, logd, logi, logw, loge. </li>
 - Support inspection that detects mismatched argument count for log message format,
-    and the last throwable argument is excluded now. :)
+    and the last throwable argument excluded now.
 - Add quick fixes when the count of placeholders is not enough.
 
 PS: Support 'sqlp' to create a MapSqlParameterSource with all parameter filled.

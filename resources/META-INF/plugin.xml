@@ -1,7 +1,7 @@
-<idea-plugin version="2" url="https://github.com/lixian/log-support-lite">
+<idea-plugin url="https://github.com/lixian/log-support-lite">
     <id>LogSupportLite</id>
     <name>Log Support Lite</name>
-    <version>0.4.2</version>
+    <version>0.5</version>
     <vendor>com.github.lixian</vendor>
     <category>Code tools</category>
 
@@ -22,6 +22,7 @@
 
     <change-notes><![CDATA[
         <ul>
+            <li>0.5: Compatible with IDEA 2020 versions.</li>
             <li>0.4.2: Bug fix.</li>
             <li>0.4: Add quick fix when the count of placeholders is not enough.</li>
             <li>0.3.2: Support custom logger name. but you need to modify the live templates by
@@ -38,13 +39,9 @@
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="141.0"/>
+    <idea-version since-build="162"/>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+    <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
@@ -56,9 +53,10 @@
                 implementation="com.github.lixian.idea.livetemplates.ResolveOptionalVariableOfType"/>
         <liveTemplateMacro
                 implementation="com.github.lixian.idea.livetemplates.ResolveSqlParam"/>
-        <defaultLiveTemplatesProvider
-                implementation="com.github.lixian.idea.livetemplates.TemplatesProvider"/>
-
+        <defaultLiveTemplates
+                file="/liveTemplates/logSupport.xml"/>
+        <defaultLiveTemplates
+                file="/liveTemplates/sqlParameters.xml"/>
         <inspectionToolProvider
                 implementation="com.github.lixian.idea.inspections.InspectionsProvider"/>
     </extensions>

@@ -1,4 +1,4 @@
-package com.github.lixian.idea.inspections;
+package com.github.lixian.idea.inspections.logging;
 
 import java.util.List;
 

@@ -1,9 +1,11 @@
 package com.github.lixian.idea.livetemplates;
 
 import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NotNull;
 
 import com.github.lixian.idea.util.PsiUtil;
 import com.intellij.codeInsight.template.Template;
+import com.intellij.codeInsight.template.impl.TemplateContext;
 import com.intellij.codeInsight.template.impl.TemplateOptionalProcessor;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
@@ -124,7 +126,7 @@ public class TemplatePostProcessor implements TemplateOptionalProcessor {
     }
 
     @Override
-    public boolean isVisible(Template template) {
+    public boolean isVisible(@NotNull Template template, @NotNull TemplateContext context) {
         return false;
     }
 }
